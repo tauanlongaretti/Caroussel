@@ -1,13 +1,14 @@
 import React from "react";
-import Arrow from "./images/Arrow.webp"
+import Arrow from "./images/Arrow.webp";
 import styled from "styled-components";
 
 const Card = styled.div`
+  font-size: 2em;
   background: #e3e3e3;
   border: 1px solid black;
   padding: 10px;
   margin: 20px;
-  width: 150px;
+  width: 300px;
   text-align: center;
 `;
 
@@ -29,6 +30,24 @@ const PrevArrow = styled.img`
   transform: scaleX(-1);
 `;
 
+const NextCard = styled.div`
+background: #e3e3e3;
+border: 1px solid black;
+padding: 10px;
+margin: 20px;
+width: 150px;
+text-align: center;
+`;
+
+const PrevCard = styled.div`
+background: #e3e3e3;
+border: 1px solid black;
+padding: 10px;
+margin: 20px;
+width: 150px;
+text-align: center;
+`;
+
 const App = props => {
   const Data = [
     { header: "First", paragraph: "This is the first paragraph" },
@@ -40,17 +59,20 @@ const App = props => {
 
   return (
     <Container>
-      <PrevArrow src={Arrow}/>
-      {Data &&
-        Data.map((card, i) => {
-          return (
-            <Card>
-              <h1>{card.header}</h1>
-              <p>{card.paragraph}</p>
-            </Card>
-          );
-        })}
-        <NextArrow src={Arrow}/>
+      <PrevArrow src={Arrow} />
+      <PrevCard>
+        <h1>{Data[2].header}</h1>
+        <p>{Data[2].paragraph}</p>
+      </PrevCard>
+      <Card>
+        <h1>{Data[1].header}</h1>
+        <p>{Data[1].paragraph}</p>
+      </Card>
+      <NextCard>
+        <h1>{Data[0].header}</h1>
+        <p>{Data[0].paragraph}</p>
+      </NextCard>
+      <NextArrow src={Arrow} />
     </Container>
   );
 };
