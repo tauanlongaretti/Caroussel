@@ -31,7 +31,8 @@ const PrevArrow = styled.img`
 `;
 
 const NextCard = styled.div`
-  background: #e3e3e3;
+  color: gray;
+  background: gray;
   border: 1px solid black;
   padding: 10px;
   margin: 20px;
@@ -40,7 +41,8 @@ const NextCard = styled.div`
 `;
 
 const PrevCard = styled.div`
-  background: #e3e3e3;
+  color: gray;
+  background: gray;
   border: 1px solid black;
   padding: 10px;
   margin: 20px;
@@ -91,7 +93,7 @@ const App = props => {
 
   return (
     <Container>
-      <PrevArrow src={Arrow} onClick={checkForPrev} />
+      <PrevArrow id="prev-button" src={Arrow} onClick={checkForPrev}/>
       {(() => {
         if (count < 4) {
           return (
@@ -109,7 +111,7 @@ const App = props => {
           );
         }
       })()}
-      <Card>
+      <Card id="main">
         <h1>{Data[count].header}</h1>
         <p>{Data[count].paragraph}</p>
       </Card>
@@ -130,7 +132,7 @@ const App = props => {
           );
         }
       })()}
-      <NextArrow src={Arrow} onClick={checkForNext} />
+      <NextArrow id="next-button" src={Arrow} onClick={checkForNext} />
     </Container>
   );
 };
